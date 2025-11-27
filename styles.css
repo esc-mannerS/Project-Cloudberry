@@ -291,7 +291,7 @@ h2.main-text {
   margin: 0px;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 340px) {
     .main-header-menu {
       position: absolute;
       left: 0;
@@ -302,4 +302,5 @@ h2.main-text {
 }
 /* menu end */
 /* main end */
+
 
