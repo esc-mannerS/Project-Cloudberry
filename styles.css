@@ -261,7 +261,7 @@ h2.main-text {
   border-radius: var(--border-box);
   box-shadow: var(--shadow);
   padding: var(--padding-sub);
-  /* width: 250px; */
+  width: 250px;
   margin: 1rem 26px;
   flex-shrink: 0;
   display: none;
@@ -302,6 +302,7 @@ h2.main-text {
 }
 /* menu end */
 /* main end */
+
 
 
 
