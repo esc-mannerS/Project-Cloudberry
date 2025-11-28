@@ -191,8 +191,8 @@ h2.main-text {
 
 .category-image {
   border-radius: var(--border-box);
-  height: 260px;
-  width: 160px;
+  height: 16rem;
+  width: 10rem;
   object-fit: cover;
   max-width: 100%;
 }
@@ -260,7 +260,7 @@ h2.main-text {
   border-radius: var(--border-box);
   box-shadow: var(--shadow);
   padding: var(--padding-sub);
-  /* width: 250px; */
+  width: 12rem;
   margin: 1rem 1.6rem 1rem 0;
   flex-shrink: 0;
   display: none;
@@ -352,14 +352,9 @@ h2.main-text {
   margin: 0;
 }
 
-.navigation-text > address {
-  padding: 10px;
-  background-color: black;
-}
-
 .navigation-some {
-  height: 30px;
-  width: 30px;
+  height: 1.7rem;
+  width: 1.7rem;
   background-color: black;
   border: black solid 6px;
   border-radius: var(--border-box);
