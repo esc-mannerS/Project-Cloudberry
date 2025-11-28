@@ -370,3 +370,10 @@ h2.main-text {
 .navigation-adresse p {
   margin: 0.4rem 0 0 0;
 }
+
+@media (max-width: 750px) {
+  .footer-navigation {
+    flex-direction: column;
+  }
+}
+/* footer end */
