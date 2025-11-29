@@ -1,5 +1,8 @@
 .panel-panel {
-  width: 50%;
+  max-width: var(--width-page);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .panel-group {
@@ -22,6 +25,7 @@
 
 .panel-body {
   font-size: var(--reg-text-size);
+  font-weight: var(--reg-text-weight);
   color: var(--color-3);
   display: none;
 }
@@ -47,4 +51,10 @@
 .panel-contact {
   margin-top: var(--border-box);
   text-align: center;
+}
+
+.panel-contact a {
+  font-size: var(--reg-text-size);
+  font-weight: var(--reg-text-weight);
+  color: var(--color-3);
 }

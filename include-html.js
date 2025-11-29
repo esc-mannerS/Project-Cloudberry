@@ -1,9 +1,8 @@
 async function loadIncludes(callback) {
   const includeElements = document.querySelectorAll("[include-html]");
-  let total = includeElements.length;
-  let loaded = 0;
 
-  includeElements.forEach(async (el) => {
+  // convert NodeList to array of promises
+  const tasks = Array.from(includeElements).map(async (el) => {
     const file = el.getAttribute("include-html");
     try {
       const response = await fetch(file);
@@ -11,13 +10,16 @@ async function loadIncludes(callback) {
     } catch (e) {
       el.innerHTML = "Failed to load " + file;
     }
-
-    loaded++;
-    if (loaded === total && typeof callback === "function") {
-      callback(); // all includes finished
-    }
   });
+
+  // wait for ALL fetch() calls to complete
+  await Promise.all(tasks);
+
+  // now ALL includes are finished
+  if (typeof callback === "function") callback();
 }
+
+// Load includes and THEN run initMenu()
 loadIncludes(() => {
   initMenu();
 });
