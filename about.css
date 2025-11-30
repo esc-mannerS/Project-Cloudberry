@@ -1,11 +1,10 @@
 .main-text-body {
   color: var(--color-3);
-  padding: 0.6rem 2rem;
+  padding: 0.6rem 0.6rem;
 }
 
 .main-text-body p {
   font-size: var(--reg-text-size);
   font-weight: var(--reg-text-weight);
-  margin: 0.5rem 0 0 0;
+  margin: 0.6rem 0 0 0;
 }
-

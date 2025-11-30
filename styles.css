@@ -6,9 +6,9 @@
 }
 
 :root {
-  --sub-text-size: 1.1rem;
+  --sub-text-size: 1.2rem;
   --sub-text-weight: 140;
-  --reg-text-size: 1rem;
+  --reg-text-size: 1.15rem;
   --reg-text-weight: 120;
 }
 
@@ -163,13 +163,14 @@ h2.main-text {
   box-shadow: var(--shadow);
   padding: var(--padding-sub);
   width: 12rem;
+  height: auto;
   margin: 1rem 1.6rem 1rem 0;
   display: none;
+  align-self: stretch;
 }
 
 .main-header-menu.open {
   display: block;
-  background: var(--color-2);
 }
 
 .main-header-menu ul {
@@ -265,6 +266,9 @@ h2.main-text {
 
 .navigation-adresse p {
   margin: 0.4rem 0 0 0;
+  font-size: var(--reg-text-size);
+  font-weight: var(--reg-text-weight);
+  color: var(--color-3);
 }
 
 @media (max-width: 750px) {
