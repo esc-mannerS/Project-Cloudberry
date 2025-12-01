@@ -193,7 +193,7 @@ h2.main-text {
   height: auto;
   align-self: stretch;
   display: none;
-  flex: 0 0 12rem;
+  flex: 0 0 14rem;
 }
 
 .main-header-menu.open {
