@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 $errors = [
     'login' => $_SESSION['login_error'] ?? '',
     'register' => $_SESSION['register_error'] ?? ''
@@ -27,9 +25,9 @@ function isActiveForm($formName, $activeForm) {
     <link rel="icon" href="sagaswap-icon.ico" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Project Cloudberry" />
-    <meta name="keywords" content="Project Cloudberry, The Vaduz Network" />
-    <meta name="author" content="esc.manners" />
+    <meta name="description" content="SagaSwap" />
+    <meta name="keywords" content="SagaSwap, The Vaduz Network" />
+    <meta name="author" content="esc-mannerS" />
     <meta
       http-equiv="Content-Security-Policy"
       content="
@@ -44,7 +42,7 @@ function isActiveForm($formName, $activeForm) {
   <body>
     <div id="container">
       <header>
-        <div include-html="header-header.html"></div>
+        <?php include('include/header-header.php');?>
       </header>
       <main>
         <div class="main-main">
@@ -56,7 +54,7 @@ function isActiveForm($formName, $activeForm) {
               </div>
               <div class="body-content">
                 <div class="login-container <?= isActiveForm('login', $activeForm); ?>" id="login-form">
-                  <form action="login_register.php" method="post">
+                  <form action="login-register.php" method="post">
                     <div class="login-field">
                       <h3>Log ind</h3>
                       <?= showError($errors['login']); ?>
@@ -94,7 +92,7 @@ function isActiveForm($formName, $activeForm) {
                   </form>
                 </div>
                 <div class="login-container <?= isActiveForm('register', $activeForm); ?>" id="register-form">
-                  <form action="login_register.php" method="post">
+                  <form action="login-register.php" method="post">
                     <div class="login-field">
                       <h3>Opret bruger</h3>
                       <?= showError($errors['register']); ?>
@@ -139,15 +137,14 @@ function isActiveForm($formName, $activeForm) {
                 </div>
               </div>
             </div>
-            <div include-html="main-header-menu.html"></div>
+            <?php include('include/main-header-menu.php');?>
           </div>
         </div>
       </main>
       <footer>
-        <div include-html="footer-footer.html"></div>
+        <?php include('include/footer-footer.php');?>
       </footer>
     </div>
-    <script src="include-html.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
