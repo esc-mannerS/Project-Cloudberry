@@ -3,7 +3,7 @@
 $host = "localhost";
 $username = "root";
 $password = "";
-$database = "users_db";
+$database = "sagaswap";
 
 $conn = new mysqli($host, $username, $password, $database);
 
