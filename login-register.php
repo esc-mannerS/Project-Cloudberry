@@ -7,7 +7,7 @@ require_once 'config.php';
 function redirect_with_error($error, $form = 'login') {
     $_SESSION[$form . '_error'] = $error;
     $_SESSION['active_form'] = $form;
-    header("Location: login.php");
+    header("Location: public/pages/login.php");
     exit();
 }
 
@@ -56,7 +56,7 @@ if (isset($_POST['register'])) {
         $insert_stmt = $conn->prepare("INSERT INTO users (username, email, password, municipality_id) VALUES (?, ?, ?, ?)");
         $insert_stmt->bind_param("sssi", $username_input, $email_input, $hashed_password, $municipality_id);
         if ($insert_stmt->execute()) {
-            header("Location: login.php");
+            header("Location: public/pages/login.php");
             exit;
         } else {
             redirect_with_error('Der opstod en fejl, prøv venligst igen!', 'register');
@@ -87,7 +87,7 @@ if (isset($_POST['login'])) {
             $_SESSION['email'] = $user_record['email'];
             $_SESSION['user_id'] = $user_record['id'];
             session_regenerate_id(true);
-            header("Location: my-profile.php");
+            header("Location: public/pages/my-profile.php");
             exit;
         }
     }

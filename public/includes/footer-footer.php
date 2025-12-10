@@ -9,9 +9,10 @@
                 <p>VAT: DK00000000</p>
             </div>
             <div class="navigation-icons">
-                <a href="https://x.com"><img src="includes/images/x-logo.svg" class="navigation-some" /></a>
-                <a href="https://github.com/esc-mannerS/SagaSwap"><img src="includes/images/github-logo.svg"
+                <a href="https://x.com"><img src="/sagaswap/public/includes/images/x-logo.svg"
                         class="navigation-some" /></a>
+                <a href="https://github.com/esc-mannerS/SagaSwap"><img
+                        src="/sagaswap/public/includes/images/github-logo.svg" class="navigation-some" /></a>
             </div>
         </div>
         <div class="navigation-column">
@@ -25,8 +26,8 @@
         <div class="navigation-column">
             <h5 class="navigation-text">Support</h5>
             <ul>
-                <li><a href="fqa.php">Ofte stillede spørgsmål</a></li>
-                <li><a href="about.php">Om SagaSwap</a></li>
+                <li><a href="/sagaswap/public/pages/fqa.php">Ofte stillede spørgsmål</a></li>
+                <li><a href="/sagaswap/public/pages/about.php">Om SagaSwap</a></li>
             </ul>
         </div>
         <div class="navigation-column">
@@ -34,7 +35,7 @@
             <ul>
                 <li><a href="">Annoncering</a></li>
                 <li><a href="">Privatlivspolitik</a></li>
-                <li><a href="userterms.php">Brugervilkår</a></li>
+                <li><a href="/sagaswap/public/pages/userterms.php">Brugervilkår</a></li>
             </ul>
         </div>
     </div>

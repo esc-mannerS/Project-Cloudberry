@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
+    header("Location: /sagaswap/public/pages/login.php");
     exit;
 }
 
@@ -45,14 +45,14 @@ $mysqli->close();
       style-src 'self'; 
       script-src 'self';
       font-src 'self';" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="my-profile.css" />
+    <link rel="stylesheet" href="/sagaswap/public/css/styles.css" />
+    <link rel="stylesheet" href="/sagaswap/public/css/my-profile.css" />
 </head>
 
 <body>
     <div id="container">
         <header>
-            <?php include('includes/header-header.php');?>
+            <?php include('../includes/header-header.php');?>
         </header>
         <main>
             <div class="main-main">
@@ -119,15 +119,15 @@ $mysqli->close();
                             </div>
                         </div>
                     </div>
-                    <?php include('includes/main-header-menu.php');?>
+                    <?php include('../includes/main-header-menu.php');?>
                 </div>
             </div>
         </main>
         <footer>
-            <?php include('includes/footer-footer.php');?>
+            <?php include('../includes/footer-footer.php');?>
         </footer>
     </div>
-    <script src="script.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 
 </html>

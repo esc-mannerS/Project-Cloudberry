@@ -1,0 +1,27 @@
+.body-content-text {
+  color: var(--color-3);
+}
+
+.body-content-text h3 {
+  font-weight: bold;
+}
+
+.body-content-text p {
+  font-size: var(--reg-text-size);
+  font-weight: var(--reg-text-weight);
+}
+
+.body-content-text ul {
+  list-style: inside;
+  font-size: var(--reg-text-size);
+  font-weight: var(--reg-text-weight);
+}
+
+.body-content-text li {
+  text-indent: -1.5rem;
+  padding-left: 2rem;
+}
+
+.body-content-text a {
+  color: var(--color-1);
+}

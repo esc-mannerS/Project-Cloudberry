@@ -1,0 +1,49 @@
+.panel-panel {
+  max-width: var(--width-page);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.panel-group {
+  border-radius: var(--border-box);
+  background-color: var(--color-4);
+  margin-bottom: 0.8rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.panel-head {
+  font-size: var(--sub-text-size);
+  color: var(--color-3);
+  margin: 0;
+}
+
+.panel-body {
+  font-size: var(--reg-text-size);
+  font-weight: var(--reg-text-weight);
+  color: var(--color-3);
+  display: none;
+}
+
+.panel-body.open {
+  display: block;
+  cursor: default;
+}
+
+.panel-body p,
+.panel-body a {
+  margin: 0.5rem 0 0 0;
+}
+
+.panel-contact {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+}
+
+.panel-contact a {
+  font-size: var(--reg-text-size);
+  font-weight: var(--reg-text-weight);
+  color: var(--color-1);
+}

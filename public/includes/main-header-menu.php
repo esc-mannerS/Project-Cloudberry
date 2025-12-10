@@ -7,7 +7,7 @@
     </ul>
     <h4 class="menu-text">Min profil</h4>
     <ul>
-        <li><a href="my-profile.php">Brugerprofil</a></li>
+        <li><a href="../pages/my-profile.php">Brugerprofil</a></li>
         <li><a href="">Ny annonce</a></li>
         <li><a href="">Mine annoncer</a></li>
         <li><a href="">Mine handler</a></li>
@@ -15,7 +15,7 @@
     </ul>
     <h4 class="menu-text">Support</h4>
     <ul>
-        <li><a href="fqa.php">Ofte stillede spørgsmål</a></li>
-        <li><a href="about.php">Om SagaSwap</a></li>
+        <li><a href="../pages/fqa.php">Ofte stillede spørgsmål</a></li>
+        <li><a href="../pages/about.php">Om SagaSwap</a></li>
     </ul>
 </nav>
