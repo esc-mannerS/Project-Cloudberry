@@ -84,6 +84,49 @@
   transition: 0.6s ease;
 }
 
+.custom-select {
+  border-radius: var(--border-box);
+  background-color: var(--color-2);
+  border: var(--color-4) solid 0.3rem;
+  color: var(--color-3);
+  padding: 0.3rem;
+  width: 100%;
+  transition: 0.6s ease;
+  position: relative;
+}
+
+.selected {
+  cursor: pointer;
+  color: var(--color-3);
+  font-size: 0.9rem;
+}
+
+.options {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  right: 0;
+  border-top: none;
+  background-color: var(--color-4);
+  max-height: 180px;
+  overflow-y: auto;
+  display: none;
+  border-radius: var(--border-box);
+}
+
+.option {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.option:hover {
+  background-color: var(--color-2);
+}
+
+.municipalities {
+  gap: 1rem;
+}
+
 .login-field :hover {
   border-color: var(--color-1);
 }

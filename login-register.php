@@ -21,12 +21,17 @@ if (isset($_POST['register'])) {
     $username_input = sanitize(trim($_POST['username']));
     $email_input = sanitize(trim($_POST['email']));
     $password_input = trim($_POST['password']);
+    $municipality_id = isset($_POST['municipality_id']) ? (int)$_POST['municipality_id'] : null;
+
 
     // checks if fields are empty
     if (empty($username_input) || empty($email_input) || empty($password_input)) {
         redirect_with_error('Alle felter skal udfyldes!', 'register');
     }
-
+    
+    if ($municipality_id <= 0) {
+        redirect_with_error('Vælg venligst en kommune!', 'register');
+    }
     // validate email
     if (!filter_var($email_input, FILTER_VALIDATE_EMAIL)) {
         redirect_with_error('Ugyldig e-mail adresse!', 'register');
@@ -48,8 +53,8 @@ if (isset($_POST['register'])) {
     } else {
         // insert to db
         $hashed_password = password_hash($password_input, PASSWORD_DEFAULT);
-        $insert_stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
-        $insert_stmt->bind_param("sss", $username_input, $email_input, $hashed_password);
+        $insert_stmt = $conn->prepare("INSERT INTO users (username, email, password, municipality_id) VALUES (?, ?, ?, ?)");
+        $insert_stmt->bind_param("sssi", $username_input, $email_input, $hashed_password, $municipality_id);
         if ($insert_stmt->execute()) {
             header("Location: login.php");
             exit;
@@ -82,7 +87,7 @@ if (isset($_POST['login'])) {
             $_SESSION['email'] = $user_record['email'];
             $_SESSION['user_id'] = $user_record['id'];
             session_regenerate_id(true);
-            header("Location: my-profil.php");
+            header("Location: my-profile.php");
             exit;
         }
     }

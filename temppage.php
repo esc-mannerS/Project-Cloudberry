@@ -21,7 +21,7 @@
 <body>
     <div id="container">
         <header>
-            <?php include('include/header-header.php');?>
+            <?php include('includes/header-header.php');?>
         </header>
         <main>
             <div class="main-main">
@@ -36,12 +36,12 @@
                         <div class="body-content">
                         </div>
                     </div>
-                    <?php include('include/main-header-menu.php');?>
+                    <?php include('includes/main-header-menu.php');?>
                 </div>
             </div>
         </main>
         <footer>
-            <?php include('include/footer-footer.php');?>
+            <?php include('includes/footer-footer.php');?>
         </footer>
     </div>
     <script src="script.js"></script>

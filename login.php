@@ -1,13 +1,29 @@
 <?php
+session_start();
+require_once 'config.php'; // Make sure $conn is available
 
+// --- Fetch municipalities from DB ---
+$municipalities = [];
+$sql = "SELECT id, name FROM municipalities ORDER BY name ASC";
+$result = $conn->query($sql);
+
+if ($result && $result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $municipalities[] = $row;
+    }
+}
+
+// --- Handle error messages ---
 $errors = [
     'login' => $_SESSION['login_error'] ?? '',
     'register' => $_SESSION['register_error'] ?? ''
 ];
 $activeForm = $_SESSION['active_form'] ?? 'login';
 
-session_unset();
+// --- Clear only the used session variables ---
+unset($_SESSION['login_error'], $_SESSION['register_error'], $_SESSION['active_form']);
 
+// --- Helper functions ---
 function showError($error) {
     return !empty($error) ? "<p class='error-message'>$error</p>" : '';
 }
@@ -15,8 +31,8 @@ function showError($error) {
 function isActiveForm($formName, $activeForm) {
     return $formName === $activeForm ? 'active' : '';
 }
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="da">
@@ -41,7 +57,7 @@ function isActiveForm($formName, $activeForm) {
 <body>
     <div id="container">
         <header>
-            <?php include('include/header-header.php');?>
+            <?php include('includes/header-header.php');?>
         </header>
         <main>
             <div class="main-main">
@@ -90,6 +106,20 @@ function isActiveForm($formName, $activeForm) {
                                         <input type="text" name="username" placeholder="Brugernavn" required />
                                     </div>
                                     <div class="login-field">
+                                        <label>Kommune</label>
+                                        <div class="custom-select" id="custom-municipality">
+                                            <div class="selected">Vælg din kommune</div>
+                                            <div class="options">
+                                                <?php foreach ($municipalities as $municipality): ?>
+                                                <div class="option" data-value="<?= $municipality['id'] ?>">
+                                                    <?= htmlspecialchars($municipality['name']) ?>
+                                                </div>
+                                                <?php endforeach; ?>
+                                            </div>
+                                            <input type="hidden" name="municipality_id" id="municipality_id" required>
+                                        </div>
+                                    </div>
+                                    <div class="login-field">
                                         <label>E-mailadresse</label>
                                         <input type="email" name="email" placeholder="E-mailadresse" required />
                                     </div>
@@ -110,12 +140,12 @@ function isActiveForm($formName, $activeForm) {
                             </div>
                         </div>
                     </div>
-                    <?php include('include/main-header-menu.php');?>
+                    <?php include('includes/main-header-menu.php');?>
                 </div>
             </div>
         </main>
         <footer>
-            <?php include('include/footer-footer.php');?>
+            <?php include('includes/footer-footer.php');?>
         </footer>
     </div>
     <script src="script.js"></script>

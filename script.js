@@ -1,4 +1,4 @@
-// Menu toggle + icon swap
+// menu toggle + icon swap
 document.addEventListener("DOMContentLoaded", function () {
   const btn = document.getElementById("menuToggle");
   const menu = document.getElementById("slideMenu");
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setIcon(isOpen);
   });
 
-  // Close when clicking outside
+  // close menu when clicking outside
   document.addEventListener("click", function (ev) {
     if (!menu.classList.contains("open")) return;
     const target = ev.target;
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Close with Escape
+  // close menu with Escape
   document.addEventListener("keydown", function (ev) {
     if (ev.key === "Escape" && menu.classList.contains("open")) {
       menu.classList.remove("open");
@@ -50,15 +50,17 @@ document.querySelectorAll(".panel-group").forEach((group) => {
   });
 });
 
-// user profil open and close panel
-document.querySelectorAll(".body-content.profil").forEach((group) => {
-  group.addEventListener("click", () => {
-    const body = group.querySelector(".profil-body");
-    body.classList.toggle("open");
+// my profil sections open and close panel
+document.querySelectorAll(".profile-head").forEach((head) => {
+  head.addEventListener("click", () => {
+    const body = head.nextElementSibling;
+    if (body && body.classList.contains("profile-body")) {
+      body.classList.toggle("open");
+    }
   });
 });
 
-// Login page
+// login page
 function showForm(formId) {
   document
     .querySelectorAll(".login-container")
@@ -73,5 +75,34 @@ document.addEventListener("DOMContentLoaded", function () {
       const formId = link.dataset.toggleForm;
       showForm(formId);
     });
+  });
+});
+
+// municipality dropdown on register page
+document.addEventListener("DOMContentLoaded", function () {
+  const customSelect = document.getElementById("custom-municipality");
+  const selected = customSelect.querySelector(".selected");
+  const optionsContainer = customSelect.querySelector(".options");
+  const hiddenInput = document.getElementById("municipality_id"); // match your PHP HTML
+
+  // Toggle dropdown visibility
+  selected.addEventListener("click", function (e) {
+    e.stopPropagation(); // prevent closing immediately
+    optionsContainer.style.display =
+      optionsContainer.style.display === "block" ? "none" : "block";
+  });
+
+  // Set value when an option is clicked
+  optionsContainer.querySelectorAll(".option").forEach((option) => {
+    option.addEventListener("click", function () {
+      selected.textContent = this.textContent; // update displayed text
+      hiddenInput.value = this.dataset.value; // update hidden input
+      optionsContainer.style.display = "none"; // close dropdown
+    });
+  });
+
+  // Close dropdown if clicked outside
+  document.addEventListener("click", function () {
+    optionsContainer.style.display = "none";
   });
 });
