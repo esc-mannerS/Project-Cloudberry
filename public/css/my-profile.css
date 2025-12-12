@@ -7,7 +7,6 @@
 
 .profile-body {
   display: none;
-  position: relative;
   width: 100%;
 }
 
@@ -16,6 +15,35 @@
   cursor: default;
 }
 
+/* new listing start */
+.new-listing {
+  color: var(--color-3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 45%;
+}
+
+.new-listing form {
+  width: 100%;
+}
+
+.listing-field {
+  padding: 0.5rem 0;
+}
+
+.listing-field label {
+  padding-left: 0.6rem;
+  margin: 0.6rem 0;
+}
+
+.listing-field input {
+  width: 100%;
+}
+
+/* new listing end */
+/* profil settings start */
 .user-profile {
   width: 100%;
   color: var(--color-3);
@@ -64,3 +92,4 @@
 .dead-user-info.delete {
   padding-right: 0.6rem;
 }
+/* profile settings end */

@@ -78,31 +78,44 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// municipality dropdown on register page
+// custom dropdown
 document.addEventListener("DOMContentLoaded", function () {
-  const customSelect = document.getElementById("custom-municipality");
-  const selected = customSelect.querySelector(".selected");
-  const optionsContainer = customSelect.querySelector(".options");
-  const hiddenInput = document.getElementById("municipality_id"); // match your PHP HTML
+  /**
+   * initialize a custom dropdown
+   * @param {string} selectId - the ID of the custom select container
+   * @param {string} hiddenInputId - the ID of the hidden input to store the value
+   */
+  function initCustomDropdown(selectId, hiddenInputId) {
+    const customSelect = document.getElementById(selectId);
+    if (!customSelect) return; // safety check
 
-  // Toggle dropdown visibility
-  selected.addEventListener("click", function (e) {
-    e.stopPropagation(); // prevent closing immediately
-    optionsContainer.style.display =
-      optionsContainer.style.display === "block" ? "none" : "block";
-  });
+    const selected = customSelect.querySelector(".selected");
+    const optionsContainer = customSelect.querySelector(".options");
+    const hiddenInput = document.getElementById(hiddenInputId);
 
-  // Set value when an option is clicked
-  optionsContainer.querySelectorAll(".option").forEach((option) => {
-    option.addEventListener("click", function () {
-      selected.textContent = this.textContent; // update displayed text
-      hiddenInput.value = this.dataset.value; // update hidden input
-      optionsContainer.style.display = "none"; // close dropdown
+    // toggle dropdown visibility
+    selected.addEventListener("click", function (e) {
+      e.stopPropagation();
+      optionsContainer.style.display =
+        optionsContainer.style.display === "block" ? "none" : "block";
     });
-  });
 
-  // Close dropdown if clicked outside
-  document.addEventListener("click", function () {
-    optionsContainer.style.display = "none";
-  });
+    // set value when an option is clicked
+    optionsContainer.querySelectorAll(".option").forEach((option) => {
+      option.addEventListener("click", function () {
+        selected.textContent = this.textContent;
+        hiddenInput.value = this.dataset.value;
+        optionsContainer.style.display = "none";
+      });
+    });
+
+    // close dropdown if clicked outside
+    document.addEventListener("click", function () {
+      optionsContainer.style.display = "none";
+    });
+  }
+
+  // initialize dropdowns
+  initCustomDropdown("custom-municipality", "municipality_id");
+  initCustomDropdown("custom-category", "category_id");
 });

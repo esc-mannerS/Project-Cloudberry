@@ -1,23 +1,36 @@
 <?php
 session_start();
+require_once '../actions/config.php';
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: /sagaswap/public/pages/login.php");
     exit;
 }
 
-// database connection
+// db connection
 $mysqli = new mysqli("localhost", "root", "", "sagaswap");
 if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
 
-// Prepare and execute query for multiple columns
+// fetch category from db
+$categories = [];
+$sql = "SELECT id, name FROM categories ORDER BY name ASC";
+$result = $conn->query($sql);
+
+if ($result && $result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $categories[] = $row;
+    }
+}
+
+// prepare and execute query for multiple columns
 $user_id = $_SESSION['user_id'];
 $stmt = $mysqli->prepare("
     SELECT u.username, u.email, u.created_at, u.id, m.name AS municipality_name
     FROM users u
     LEFT JOIN municipalities m ON u.municipality_id = m.id
+    LEFT JOIN listings l ON u.id = l.user_id
     WHERE u.id = ?
 ");
 $stmt->bind_param("i", $user_id);
@@ -67,6 +80,32 @@ $mysqli->close();
                                 <h3>Ny annonce</h3>
                             </div>
                             <div class="profile-body">
+                                <div class="new-listing">
+                                    <form action="../actions/new-listing.php" method="post">
+                                        <div class="listing-field">
+                                            <label>Kategori</label>
+                                            <div class="custom-select" id="custom-category">
+                                                <div class="selected">Kategori</div>
+                                                <div class="options">
+                                                    <?php foreach ($categories as $category): ?>
+                                                    <div class="option" data-value="<?= $category['id'] ?>">
+                                                        <?= htmlspecialchars($category['name']) ?>
+                                                    </div>
+                                                    <?php endforeach; ?>
+                                                </div>
+                                                <input type="hidden" name="category_id" id="category_id" required>
+                                            </div>
+                                        </div>
+                                        <div class="listing-field">
+                                            <label>ISO</label>
+                                            <input type="text" name="iso" placeholder="ISO"></input>
+                                        </div>
+                                        <div class="listing-field">
+                                            <label>Pris</label>
+                                            <input type="text" name="price" placeholder="Pris"></input>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                         <div class="body-content">
@@ -88,6 +127,7 @@ $mysqli->close();
                                 <h3>Profil indstillinger</h3>
                             </div>
                             <div class="profile-body">
+
                                 <div class="user-profile">
                                     <div class="profile-body-group">
                                         <div class="profile-body-column">
