@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once 'config.php';
-require_once 'BookService.php'; // <-- include the API class
+require_once 'bookService.php';
 
 // sanitize input
 function sanitize($input) {
@@ -10,7 +10,7 @@ function sanitize($input) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    // Form values
+    // form values
     $user_id = $_SESSION['user_id'];
     $category_id = (int)$_POST['category_id'];
     $isbn_input = sanitize($_POST['isbn']);
@@ -20,11 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $price_input = str_replace(',', '.', $price_input); // decimal to dot
     $isbn_input = preg_replace('/\D+/', '', $isbn_input); // cleaning
 
-    // --- API call: fetch book metadata ---
+    // api call fetch book metadata
     if (!empty($isbn_input)) {
         $bookId = BookService::getOrCreateByIsbn($conn, $isbn_input);
-        // Optionally, you could use $bookId if you wanted to link it
-        // But since you said not to touch insertion, we just call it
     }
 
     // get municipality_id from users table

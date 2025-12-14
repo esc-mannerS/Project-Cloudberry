@@ -30,15 +30,12 @@
 }
 
 .listing-field {
-  padding-top: 0.7rem;
+  padding-top: 2rem;
+  position: relative;
 }
 
 .listing-field :hover {
   border-color: var(--color-1);
-}
-
-.custom-select {
-  margin-bottom: 0.3rem;
 }
 
 .fields-after-category {
@@ -46,19 +43,35 @@
 }
 
 .listing-field label {
-  padding-left: 0.6rem;
-  margin: 0.6rem 0;
+  position: absolute;
+  bottom: 1.6rem;
+  left: 1.3rem;
+  background-color: var(--color-2);
   display: block;
 }
 
 .listing-field input {
   width: 100%;
-  margin-bottom: 0.3rem;
+}
+
+.listing-field.BottomText {
+  padding-top: 0;
+}
+
+.listing-field.BottomText p {
+  margin: 0.2rem 0 0.2rem 0.62rem;
+  font-size: var(--input-text-size);
+  font-weight: var(--reg-text-weight);
+  color: var(--color-3);
+}
+
+.listing-field.BottomText a {
+  font-size: var(--input-text-size);
+  font-weight: var(--reg-text-weight);
 }
 
 .listing-field button {
   width: 100%;
-  margin-top: 0.6rem;
 }
 /* new listing end */
 /* profil settings start */

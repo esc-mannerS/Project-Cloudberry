@@ -4,7 +4,7 @@ require_once __DIR__ . '/api_config.php';
 class BookService {
 
     public static function getOrCreateByIsbn(mysqli $conn, string $isbn): ?int {
-        // 1 check DB first
+        // 1 check db first
         $stmt = $conn->prepare("SELECT id FROM books WHERE isbn = ?");
         $stmt->bind_param("s", $isbn);
         $stmt->execute();
@@ -103,7 +103,7 @@ class BookService {
         return isset($m[0]) ? (int)$m[0] : null;
     }
 
-    // convert isbn 10 to isbn 13 optional
+    // convert isbn 10 to isbn 13
     private static function isbn13to10(string $isbn13): string {
         $isbn = substr($isbn13, 3, 9); // remove '978'
         $sum = 0;

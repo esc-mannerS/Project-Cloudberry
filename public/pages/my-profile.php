@@ -79,7 +79,7 @@ $mysqli->close();
                             <div class="profile-head">
                                 <h3>Ny annonce</h3>
                             </div>
-                            <div class="profile-body">
+                            <div class="profile-body" id="new-listing">
                                 <div class="new-listing">
                                     <form action="../actions/new-listing.php" method="post">
                                         <div class="listing-field">
@@ -98,10 +98,26 @@ $mysqli->close();
                                         </div>
                                         <div class="fields-after-category">
                                             <div class="listing-field">
-                                                <label>ISBN eller title</label>
-                                                <input type="text" name="isbn" placeholder="Indsæt ISBN"
+                                                <label>ISBN</label>
+                                                <input type="text" name="isbn" id="isbn" placeholder="Indsæt ISBN"
                                                     required></input>
-                                                <input type="text" name="title" placeholder="Eller title"></input>
+                                            </div>
+                                            <div class="listing-field">
+                                                <label>Title</label>
+                                                <input type="text" name="title" id="title" placeholder="Title"
+                                                    readonly></input>
+                                            </div>
+                                            <div class="listing-field">
+                                                <label>Forfatter</label>
+                                                <input type="text" name="author" id="author" placeholder="Forfatter"
+                                                    readonly></input>
+                                                <input type="hidden" name="book_id" id="book_id">
+                                            </div>
+                                            <div class="listing-field BottomText">
+                                                <p>Er title eller forfatter forkert? <a
+                                                        href="mailto:info@sagaswap.dk">Send
+                                                        os en mail.</a>
+                                                </p>
                                             </div>
                                             <div class="listing-field">
                                                 <label>Pris</label>
@@ -134,8 +150,7 @@ $mysqli->close();
                             <div class="profile-head">
                                 <h3>Profil indstillinger</h3>
                             </div>
-                            <div class="profile-body">
-
+                            <div class="profile-body" id="user-profile">
                                 <div class="user-profile">
                                     <div class="profile-body-group">
                                         <div class="profile-body-column">

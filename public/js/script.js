@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initProfilePanels();
   initNewListingFields();
   initPriceCorrection();
+  initFetchBookByIsbn();
 });
 
 // global functions start
@@ -138,19 +139,47 @@ function initLoginForms() {
 // my profile sections open and close panel
 function initProfilePanels() {
   const heads = document.querySelectorAll(".profile-head");
-  if (!heads.length) return;
+  function openSection(target, updateURL = false) {
+    if (!target || !target.classList.contains("profile-body")) return;
 
+    // close all other open sections
+    document.querySelectorAll(".profile-body.open").forEach((body) => {
+      if (body !== target) body.classList.remove("open");
+    });
+
+    // open the target section
+    target.classList.add("open");
+    target.scrollIntoView({ behavior: "smooth" });
+
+    // update URL hash if requested
+    if (updateURL) {
+      history.replaceState(null, "", "#" + target.id);
+    }
+  }
+
+  // click on profile-head opens the section manually
   heads.forEach((head) => {
     head.addEventListener("click", () => {
       const body = head.nextElementSibling;
-      if (body && body.classList.contains("profile-body")) {
-        body.classList.toggle("open");
-      }
+      openSection(body, false); // false = don’t update URL
     });
+  });
+
+  // open section on page load
+  if (window.location.hash) {
+    const target = document.getElementById(window.location.hash.substring(1));
+    openSection(target, false);
+  }
+
+  // listen for hash changes
+  window.addEventListener("hashchange", () => {
+    const target = document.getElementById(window.location.hash.substring(1));
+    openSection(target, false);
   });
 }
 
-// new listing fields appear after category is set
+document.addEventListener("DOMContentLoaded", initProfilePanels);
+// show fields when category is set
 function initNewListingFields() {
   const fieldsContainer = document.querySelector(".fields-after-category");
   if (!fieldsContainer) return;
@@ -161,6 +190,30 @@ function showNewListingFields() {
   const fieldsContainer = document.querySelector(".fields-after-category");
   if (fieldsContainer) fieldsContainer.style.display = "block";
 }
+
+// fetch book data
+document.getElementById("isbn").addEventListener("blur", function () {
+  const isbn = this.value.trim();
+
+  if (!isbn) return;
+
+  fetch("/sagaswap/public/actions/my-profile/fetch-book.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ isbn: isbn }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.success) {
+        document.getElementById("title").value = data.title;
+        document.getElementById("author").value = data.author;
+        document.getElementById("book_id").value = data.book_id;
+      } else {
+        alert("Book not found or invalid ISBN");
+      }
+    })
+    .catch((err) => console.error(err));
+});
 
 // new listing price correction
 function initPriceCorrection() {

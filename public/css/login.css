@@ -19,7 +19,8 @@
 }
 
 .login-field {
-  padding-top: 1rem;
+  padding-top: 2rem;
+  position: relative;
 }
 
 .login-field h3 {
@@ -28,17 +29,23 @@
   text-align: center;
 }
 
+.login-field.NewPassword {
+  margin: 0.2rem 0 0.2rem 0.62rem;
+  padding-top: 0;
+}
+
 .login-field p {
-  font-size: var(--reg-text-size);
+  font-size: var(--input-text-size);
   font-weight: var(--reg-text-weight);
   color: var(--color-3);
   text-align: center;
-  margin: 0;
 }
 
 .login-field label {
-  padding-left: 0.4rem;
-  margin: 0.6rem 0;
+  position: absolute;
+  bottom: 1.6rem;
+  left: 1.3rem;
+  background-color: var(--color-2);
   display: block;
 }
 
@@ -55,11 +62,6 @@
   width: 100%;
 }
 
-.login-field input::placeholder {
-  font-size: 0.9rem;
-  font-weight: var(--reg-text-weight);
-}
-
 .login-field button {
   width: 100%;
 }
@@ -70,10 +72,6 @@
 
 .login-field :hover {
   border-color: var(--color-1);
-}
-
-.login-field a {
-  color: var(--color-1);
 }
 
 .login-field .error-message {
@@ -87,8 +85,4 @@
 
 .login-field.TopText {
   padding-top: 0;
-}
-
-.login-field.RegisterButton {
-  margin-top: 0.6rem;
 }

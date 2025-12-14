@@ -12,6 +12,7 @@
   --sub-text-weight: 140;
   --reg-text-size: 1.15rem;
   --reg-text-weight: 120;
+  --input-text-size: 1.05rem;
 }
 
 :root {
@@ -25,6 +26,7 @@
 a:link,
 a:visited {
   text-decoration: none;
+  color: var(--color-1);
 }
 
 ul {
@@ -53,6 +55,7 @@ body {
 
 p {
   line-height: 1.2;
+  margin: 0;
 }
 
 h1,
@@ -68,12 +71,14 @@ h3 {
 }
 
 label {
-  font-size: var(--reg-text-size);
+  font-size: var(--input-text-size);
   font-weight: var(--reg-text-weight);
+  z-index: 800;
 }
 
 ::placeholder {
   color: var(--color-6);
+  font-size: calc(var(--input-text-size) - 10%);
 }
 
 input {
@@ -291,7 +296,7 @@ h1.main-text {
 .selected {
   cursor: pointer;
   color: var(--color-6);
-  font-size: 0.9rem;
+  font-size: calc(var(--input-text-size) - 10%);
 }
 
 .options {
@@ -301,10 +306,13 @@ h1.main-text {
   right: 0;
   border-top: none;
   background-color: var(--color-4);
+  border: var(--color-4) solid 0.3rem;
+  box-sizing: border-box;
   max-height: 180px;
   overflow-y: auto;
   display: none;
   border-radius: var(--border-box);
+  z-index: 900;
 }
 
 .option {

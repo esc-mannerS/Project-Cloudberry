@@ -81,7 +81,9 @@ function isActiveForm($formName, $activeForm) {
                                     <div class="login-field">
                                         <label>Adgangskode</label>
                                         <input type="password" name="password" placeholder="Adgangskode" required />
-                                        <label><a href="">Glemt din adgangskode?</a></label>
+                                    </div>
+                                    <div class="login-field NewPassword">
+                                        <a href="">Glemt din adgangskode?</a>
                                     </div>
                                     <div class="login-field">
                                         <button type="submit" name="login">Log ind</button>
@@ -127,7 +129,7 @@ function isActiveForm($formName, $activeForm) {
                                         <label>Adgangskode</label>
                                         <input type="password" name="password" placeholder="Adgangskode" required />
                                     </div>
-                                    <div class="login-field RegisterButton">
+                                    <div class="login-field">
                                         <button type="submit" name="register">Opret bruger</button>
                                     </div>
                                     <div class="login-field BottomText">
