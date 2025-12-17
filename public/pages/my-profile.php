@@ -81,51 +81,69 @@ $mysqli->close();
                             </div>
                             <div class="profile-body" id="new-listing">
                                 <div class="new-listing">
-                                    <form action="../actions/my-profile/new-listing.php" method="post">
-                                        <div class="listing-field">
-                                            <label>Kategori</label>
-                                            <div class="custom-select" id="custom-category">
-                                                <div class="selected">Kategori</div>
-                                                <div class="options">
-                                                    <?php foreach ($categories as $category): ?>
-                                                    <div class="option" data-value="<?= $category['id'] ?>">
-                                                        <?= htmlspecialchars($category['name']) ?>
+                                    <form action="../actions/my-profile/new-listing.php" method="post"
+                                        enctype="multipart/form-data">
+                                        <div class="listing-column first">
+                                            <div class="listing-field">
+                                                <label>Kategori</label>
+                                                <div class="custom-select" id="custom-category">
+                                                    <div class="selected">Kategori</div>
+                                                    <div class="options">
+                                                        <?php foreach ($categories as $category): ?>
+                                                        <div class="option" data-value="<?= $category['id'] ?>">
+                                                            <?= htmlspecialchars($category['name']) ?>
+                                                        </div>
+                                                        <?php endforeach; ?>
                                                     </div>
-                                                    <?php endforeach; ?>
+                                                    <input type="hidden" name="category_id" id="category_id" required>
                                                 </div>
-                                                <input type="hidden" name="category_id" id="category_id" required>
+                                            </div>
+                                            <div class="fields-after-category">
+                                                <div class="listing-field">
+                                                    <label>ISBN</label>
+                                                    <input type="text" name="isbn" id="isbn" placeholder="Indsæt ISBN"
+                                                        required></input>
+                                                </div>
+                                                <div class="listing-field">
+                                                    <label>Title</label>
+                                                    <input type="text" name="title" id="title" placeholder="Title"
+                                                        readonly></input>
+                                                </div>
+                                                <div class="listing-field">
+                                                    <label>Forfatter</label>
+                                                    <input type="text" name="author" id="author" placeholder="Forfatter"
+                                                        readonly></input>
+                                                    <input type="hidden" name="book_id" id="book_id">
+                                                </div>
+                                                <div class="listing-field BottomText">
+                                                    <p>Er title eller forfatter forkert? <a
+                                                            href="mailto:info@sagaswap.dk">Send
+                                                            os en mail.</a>
+                                                    </p>
+                                                </div>
+                                                <div class="listing-field">
+                                                    <label>Pris</label>
+                                                    <input type="text" name="price" id="price"
+                                                        placeholder="Skriv din pris" required></input>
+                                                </div>
+                                                <div class="listing-field">
+                                                    <button type="submit" name="list">Opret annonce</button>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="fields-after-category">
-                                            <div class="listing-field">
-                                                <label>ISBN</label>
-                                                <input type="text" name="isbn" id="isbn" placeholder="Indsæt ISBN"
-                                                    required></input>
-                                            </div>
-                                            <div class="listing-field">
-                                                <label>Title</label>
-                                                <input type="text" name="title" id="title" placeholder="Title"
-                                                    readonly></input>
-                                            </div>
-                                            <div class="listing-field">
-                                                <label>Forfatter</label>
-                                                <input type="text" name="author" id="author" placeholder="Forfatter"
-                                                    readonly></input>
-                                                <input type="hidden" name="book_id" id="book_id">
-                                            </div>
-                                            <div class="listing-field BottomText">
-                                                <p>Er title eller forfatter forkert? <a
-                                                        href="mailto:info@sagaswap.dk">Send
-                                                        os en mail.</a>
-                                                </p>
-                                            </div>
-                                            <div class="listing-field">
-                                                <label>Pris</label>
-                                                <input type="text" name="price" id="price" placeholder="Skriv din pris"
-                                                    required></input>
-                                            </div>
-                                            <div class="listing-field">
-                                                <button type="submit" name="list">Opret annonce</button>
+                                        <div class="listing-column">
+                                            <div class="fields-after-category">
+                                                <div class="listing-field">
+                                                    <label>Billeder</label>
+                                                    <input type="file" id="imageInput" name="images[]"
+                                                        accept="image/jpeg,image/jpg,image/png,image/webp" multiple
+                                                        required>
+                                                    <div id="imagePreview" class="image-preview"></div>
+                                                    <p>
+                                                        Her skal du oploade 2 billeder af bogen:<br>
+                                                        et af forsiden og et af bagsiden
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
                                     </form>

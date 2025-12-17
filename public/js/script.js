@@ -188,8 +188,9 @@ function initNewListingFields() {
 }
 
 function showNewListingFields() {
-  const fieldsContainer = document.querySelector(".fields-after-category");
-  if (fieldsContainer) fieldsContainer.style.display = "block";
+  document.querySelectorAll(".fields-after-category").forEach((el) => {
+    el.style.display = "block";
+  });
 }
 
 // fetch book data
@@ -243,4 +244,24 @@ function initPriceCorrection() {
     priceInput.value = `${whole},${decimal}`;
   });
 }
+
+document.addEventListener("change", function (e) {
+  if (e.target.id !== "imageInput") return;
+
+  const preview = document.getElementById("imagePreview");
+  if (!preview) return;
+
+  preview.innerHTML = "";
+
+  [...e.target.files].forEach((file) => {
+    if (!file.type.startsWith("image/")) return;
+
+    const img = document.createElement("img");
+    img.src = URL.createObjectURL(file);
+    img.style.width = "120px";
+    img.style.height = "160px";
+    preview.appendChild(img);
+  });
+});
+
 // my profile end
