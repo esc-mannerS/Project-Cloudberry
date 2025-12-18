@@ -1,3 +1,3 @@
-config.php
-api_config.php
-listings/
+/public/actions/config.php
+/public/actions/api_config.php
+/public/actions/uploads/listings/.gitkeep
