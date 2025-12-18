@@ -8,6 +8,35 @@ function sanitize($input) {
     return htmlspecialchars(trim($input), ENT_QUOTES, 'UTF-8');
 }
 
+// image helpers
+function loadImage(string $path) {
+    $info = getimagesize($path);
+    if (!$info) return false;
+
+    return match ($info['mime']) {
+        'image/jpeg' => imagecreatefromjpeg($path),
+        'image/png'  => imagecreatefrompng($path),
+        'image/webp' => imagecreatefromwebp($path),
+        default      => false
+    };
+}
+
+function resizeToBox($src, int $maxW, int $maxH) {
+    $w = imagesx($src);
+    $h = imagesy($src);
+
+    $scale = min($maxW / $w, $maxH / $h, 1);
+    if ($scale >= 1) return $src;
+
+    $newW = (int)round($w * $scale);
+    $newH = (int)round($h * $scale);
+
+    $dst = imagecreatetruecolor($newW, $newH);
+    imagecopyresampled($dst, $src, 0, 0, 0, 0, $newW, $newH, $w, $h);
+
+    return $dst;
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // image upload validation
@@ -21,7 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("You must upload exactly 2 images");
     }
 
-    $allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
     $uploadDir = '../../user-uploads/listings/';
 
     // form values
@@ -77,22 +105,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         "INSERT INTO listings_images (listing_id, image_path) VALUES (?, ?)"
     );
 
+    $maxW = 591;
+    $maxH = 1050;
+    $quality = 78;
+
     for ($i = 0; $i < 2; $i++) {
 
         if ($images['error'][$i] !== UPLOAD_ERR_OK) {
             die("Image upload error");
         }
 
-        if (!in_array($images['type'][$i], $allowedTypes)) {
-            die("Invalid image type");
+        $src = loadImage($images['tmp_name'][$i]);
+        if (!$src) {
+            die("Invalid image file");
         }
 
-        $ext = pathinfo($images['name'][$i], PATHINFO_EXTENSION);
-        $filename = uniqid('listing_', true) . '.' . $ext;
+        $resized = resizeToBox($src, $maxW, $maxH);
+
+        $filename = bin2hex(random_bytes(16)) . '.webp';
         $targetPath = $uploadDir . $filename;
 
-        if (!move_uploaded_file($images['tmp_name'][$i], $targetPath)) {
+        if (!imagewebp($resized, $targetPath, $quality)) {
             die("Failed to save image");
+        }
+
+        imagedestroy($src);
+        if ($resized !== $src) {
+            imagedestroy($resized);
         }
 
         $imgStmt->bind_param("is", $listing_id, $filename);
