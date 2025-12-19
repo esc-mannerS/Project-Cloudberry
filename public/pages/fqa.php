@@ -10,10 +10,11 @@
     <meta name="keywords" content="SagaSwap, Marketplace, Open Source" />
     <meta name="author" content="esc-mannerS" />
     <meta http-equiv="Content-Security-Policy" content="
-      default-src 'self'; 
-      style-src 'self'; 
-      script-src 'self';
-      font-src 'self';" />
+        default-src 'self'; 
+        style-src 'self'; 
+        script-src 'self';
+        font-src 'self';
+        img-src 'self';" />
     <link rel="stylesheet" href="/sagaswap/public/css/styles.css" />
     <link rel="stylesheet" href="/sagaswap/public/css/fqa.css" />
 </head>

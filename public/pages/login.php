@@ -46,10 +46,11 @@ function isActiveForm($formName, $activeForm) {
     <meta name="keywords" content="SagaSwap, Marketplace, Open Source" />
     <meta name="author" content="esc-mannerS" />
     <meta http-equiv="Content-Security-Policy" content="
-      default-src 'self'; 
-      style-src 'self' 'unsafe-inline'; 
-      script-src 'self';
-      font-src 'self';" />
+        default-src 'self'; 
+        style-src 'self' 'unsafe-inline'; 
+        script-src 'self';
+        font-src 'self';
+        img-src 'self';" />
     <link rel="stylesheet" href="/sagaswap/public/css/styles.css" />
     <link rel="stylesheet" href="/sagaswap/public/css/login.css" />
 </head>
