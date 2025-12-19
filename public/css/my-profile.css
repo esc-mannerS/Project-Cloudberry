@@ -24,19 +24,32 @@
 .new-listing form {
   display: flex;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .listing-column {
-  width: 50%;
+  width: 45%;
 }
 
 .listing-column.first {
-  margin-right: 8rem;
+  margin-right: 10%;
 }
 
 .listing-field {
   margin-top: 2rem;
   position: relative;
+}
+
+@media (max-width: 750px) {
+  .new-listing {
+    flex-direction: column;
+  }
+  .new-listing form {
+    display: block;
+  }
+  .listing-column {
+    width: 100%;
+  }
 }
 
 .listing-field :hover {
@@ -73,6 +86,10 @@
 .listing-field.BottomText a {
   font-size: var(--input-text-size);
   font-weight: var(--reg-text-weight);
+}
+
+.listing-column.button {
+  width: 100%;
 }
 
 .listing-field button {
@@ -129,9 +146,9 @@
 /* new listing end */
 /* profil settings start */
 .user-profile {
+  display: flex;
   width: 100%;
   color: var(--color-3);
-  display: flex;
 }
 .user-profile p {
   margin: 0.4rem 0 0 0;
@@ -142,6 +159,13 @@
 .profile-body-group {
   width: 50%;
   display: flex;
+}
+
+@media (max-width: 750px) {
+  .user-profile {
+    flex-direction: column;
+    width: 100%;
+  }
 }
 
 .profile-body-column {
@@ -161,7 +185,6 @@
 
 .profile-body-group.three {
   display: block;
-  position: relative;
 }
 
 .dead-user-info {

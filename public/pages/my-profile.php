@@ -128,9 +128,6 @@ $mysqli->close();
                                                     <input type="text" name="price" id="price"
                                                         placeholder="Skriv din pris" required></input>
                                                 </div>
-                                                <div class="listing-field">
-                                                    <button type="submit" name="list">Opret annonce</button>
-                                                </div>
                                             </div>
                                         </div>
                                         <div class="listing-column">
@@ -147,6 +144,11 @@ $mysqli->close();
                                                         <div id="imagePreview" class="image-preview"></div>
                                                     </div>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="listing-column button fields-after-category">
+                                            <div class="listing-field">
+                                                <button type="submit" name="list">Opret annonce</button>
                                             </div>
                                         </div>
                                     </form>
