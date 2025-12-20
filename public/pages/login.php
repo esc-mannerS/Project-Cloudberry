@@ -1,4 +1,7 @@
-<?php require_once '../actions/login/login-logic.php'; ?>
+<?php 
+require_once __DIR__ . '/../includes/bootstrap.php';
+require_once __DIR__ . '/../actions/login/login-logic.php';
+?>
 
 <!DOCTYPE html>
 <html lang="da">

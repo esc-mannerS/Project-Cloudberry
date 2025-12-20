@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once '../config.php';
-require_once 'bookService.php';
+require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/bookService.php';
 
 header('Content-Type: application/json');
 

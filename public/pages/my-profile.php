@@ -1,4 +1,7 @@
-<?php require_once '../actions/my-profile/my-profile-logic.php'; ?>
+<?php
+require_once __DIR__ . '/../includes/bootstrap.php';
+require_once __DIR__ . '/../actions/my-profile/my-profile-logic.php';
+?>
 
 <!DOCTYPE html>
 <html lang="da">
@@ -118,6 +121,28 @@
                                 <h3>Mine annoncer</h3>
                             </div>
                             <div class="profile-body">
+                                <?php if (empty($listings)): ?>
+                                <p>Ingen annoncer endnu...</p>
+                                <?php endif; ?>
+                                <?php foreach ($listings as $listing): ?>
+                                <div class="listed-group">
+                                    <div class="image-group">
+                                        <?php foreach ($listing['images'] as $image): ?>
+                                        <img class="listed-image"
+                                            src="/sagaswap/public/user-uploads/listings/<?= htmlspecialchars($image) ?>">
+                                        <?php endforeach; ?>
+                                    </div>
+                                    <div class="text-group">
+                                        <div class="listed-text">
+                                            <p>ISBN: </p><?= htmlspecialchars($listing['isbn']) ?>
+                                        </div>
+                                        <div class="listed-text">Pris: <?= htmlspecialchars($listing['price']) ?>
+                                            <?= htmlspecialchars($listing['currency']) ?></div>
+                                        <div class="listed-text">Status:
+                                            <?= htmlspecialchars (t('status.' . $listing['status'])) ?></div>
+                                    </div>
+                                </div>
+                                <?php endforeach; ?>
                             </div>
                         </div>
                         <div class="body-content">

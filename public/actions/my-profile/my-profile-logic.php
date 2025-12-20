@@ -1,11 +1,16 @@
 <?php
-session_start();
-require_once '../actions/config.php';
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+require_once __DIR__ . '/../config.php';
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: /sagaswap/public/pages/login.php");
     exit;
 }
+
+// get listings array
+$listings = require __DIR__ . '/user-listings.php';
 
 // db connection
 $mysqli = new mysqli("localhost", "root", "", "sagaswap");

@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require_once '../config.php';
+require_once __DIR__ . '/../config.php';
 
 //  redirection with error message
 function redirect_with_error($error, $form = 'login') {

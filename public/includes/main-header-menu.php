@@ -8,7 +8,7 @@
     <h4 class="menu-text">Min profil</h4>
     <ul>
         <li><a href="/sagaswap/public/pages/my-profile.php#new-listing">Ny annonce</a></li>
-        <li><a href="">Mine annoncer</a></li>
+        <li><a href="/sagaswap/public/pages/my-profile.php#user-listings">Mine annoncer</a></li>
         <li><a href="">Mine handler</a></li>
         <li><a href="/sagaswap/public/pages/my-profile.php#user-profile" class="open-user-profile">Profil
                 Indstillinger</a></li>

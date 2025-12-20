@@ -1,6 +1,8 @@
 <?php
-session_start();
-require_once '../actions/config.php'; // make sure $conn is available
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+require_once __DIR__ . '/../config.php';
 
 // fetch municipalities from db
 $municipalities = [];
