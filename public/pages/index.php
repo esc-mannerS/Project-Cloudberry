@@ -40,7 +40,7 @@ require_once __DIR__ . '/../includes/bootstrap.php';
                                     <li>
                                         <a href="">
                                             <div>
-                                                <img src="/sagaswap/public/main-category/main-category-lps.jpg"
+                                                <img src="/sagaswap/public/main-category/main-category-lps.webp"
                                                     class="category-image" />
                                                 <p class="category-text">Lp'er</p>
                                             </div>
@@ -49,7 +49,7 @@ require_once __DIR__ . '/../includes/bootstrap.php';
                                     <li>
                                         <a href="">
                                             <div>
-                                                <img src="/sagaswap/public/main-category/main-category-books.jpg"
+                                                <img src="/sagaswap/public/main-category/main-category-books.webp"
                                                     class="category-image" />
                                                 <p class="category-text">Bøger</p>
                                             </div>
@@ -58,7 +58,7 @@ require_once __DIR__ . '/../includes/bootstrap.php';
                                     <li>
                                         <a href="">
                                             <div>
-                                                <img src="/sagaswap/public/main-category/main-category-video-games.jpg"
+                                                <img src="/sagaswap/public/main-category/main-category-video-games.webp"
                                                     class="category-image" />
                                                 <p class="category-text">Video spil</p>
                                             </div>
