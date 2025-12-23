@@ -124,7 +124,8 @@ require_once __DIR__ . '/../actions/my-profile/my-profile-logic.php';
                                 <?php if (empty($listings)): ?>
                                 <p>Ingen annoncer endnu...</p>
                                 <?php endif; ?>
-                                <?php foreach ($listings as $listing): ?>
+                                <?php foreach ($listings as $id => $listing): ?>
+
                                 <div class="listed-group">
                                     <div class="image-group">
                                         <?php foreach ($listing['images'] as $image): ?>
@@ -150,6 +151,17 @@ require_once __DIR__ . '/../actions/my-profile/my-profile-logic.php';
                                             <p class="listed-head">Status</p>
                                             <p class="listed-body">
                                                 <?= htmlspecialchars (t('status.' . $listing['status'])) ?></p>
+                                        </div>
+                                        <div class="listed-text DeleteButton">
+                                            <form class="confirm-delete"
+                                                action="/sagaswap/public/actions/my-profile/delete-listing.php"
+                                                method="POST">
+                                                <input type="hidden" name="listing_id"
+                                                    value="<?php echo htmlspecialchars($id); ?>">
+                                                <button type="submit" class="delete-listing">
+                                                    <span>Slet annonce!</span>
+                                                </button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -194,9 +206,9 @@ require_once __DIR__ . '/../actions/my-profile/my-profile-logic.php';
                                             </div>
                                         </div>
                                         <div class="dead-user-info delete">
-                                            <form action="/sagaswap/public/actions/my-profile/delete-user.php"
-                                                method="POST"
-                                                onsubmit="return confirm('Er du sikker på, at du vil slette din konto permanent? Dette kan ikke fortrydes!');">
+                                            <form class="confirm-delete"
+                                                action="/sagaswap/public/actions/my-profile/delete-user.php"
+                                                method="POST">
                                                 <input type="hidden" name="user_id"
                                                     value="<?php echo htmlspecialchars($id); ?>">
                                                 <button type="submit" class="delete-user">
@@ -210,6 +222,21 @@ require_once __DIR__ . '/../actions/my-profile/my-profile-logic.php';
                         </div>
                     </div>
                     <?php include('../includes/main-header-menu.php');?>
+                </div>
+            </div>
+            <div class="delete-popup hidden" id="confirmModal" role="dialog" aria-modal="true">
+                <div class="delete-popup-backdrop"></div>
+                <div class="delete-popup-box">
+                    <h2>Bekræft sletning</h2>
+                    <p>Er du sikker på, at du vil slette? Dette kan ikke fortrydes!</p>
+                    <div class="delete-popup-actions">
+                        <button id="confirmCancel">
+                            <span>Annuller</span>
+                        </button>
+                        <button id="confirmOk" class="deletion">
+                            <span>Slet</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </main>

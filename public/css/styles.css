@@ -27,6 +27,47 @@
   --input-transition: 0.4s ease;
 }
 
+.hidden {
+  display: none;
+}
+
+.delete-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.delete-popup-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.delete-popup-box {
+  position: relative;
+  max-width: 400px;
+  margin: 35vh auto;
+  background-color: var(--color-2);
+  padding: 1.5rem;
+  border-radius: 8px;
+  color: var(--color-3);
+}
+
+.delete-popup-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.2rem;
+}
+
+.delete-popup-actions span {
+  padding: 0.2rem;
+}
+
+button.deletion {
+  background: var(--color-5);
+  color: var(--color-4);
+}
+
 a:link,
 a:visited {
   text-decoration: none;

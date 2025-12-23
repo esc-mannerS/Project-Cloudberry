@@ -8,19 +8,19 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-// Database connection
+// db connection
 $mysqli = new mysqli("localhost", "root", "", "sagaswap");
 if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
 
-// 2. Delete the user account
+// delete the user account
 $stmt = $mysqli->prepare("DELETE FROM users WHERE id = ?");
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
 $stmt->close();
 
-// Log user out
+// log user out
 session_destroy();
 
 // Redirect to goodbye page

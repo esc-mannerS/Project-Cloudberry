@@ -179,7 +179,7 @@
 }
 
 .text-group {
-  width: 80%;
+  width: 100%;
   display: flex;
 }
 
@@ -189,6 +189,7 @@
   position: relative;
   align-items: center;
   max-width: 20%;
+  padding: 0.6rem 0;
 }
 
 .listed-head {
@@ -204,7 +205,25 @@
   font-size: var(--reg-text-size);
   font-weight: var(--reg-text-weight);
   text-align: left;
-  padding: 0.6rem 0;
+}
+
+.listed-text.DeleteButton {
+  justify-content: flex-end;
+  align-items: last baseline;
+  flex: 1;
+  max-width: 100%;
+}
+
+.delete-listing {
+  background: var(--color-5);
+  box-shadow: var(--shadow);
+  border-radius: var(--border-box);
+  color: var(--color-4);
+  border: var(--color-5) solid 0.1rem;
+  font-weight: var(--reg-text-weight);
+  font-size: 0.9rem;
+  width: 100%;
+  cursor: pointer;
 }
 /* my listings end */
 /* profil settings start */
@@ -247,7 +266,7 @@
 }
 
 .profile-body-group.three {
-  display: block;
+  flex-direction: column;
 }
 
 .dead-user-info {

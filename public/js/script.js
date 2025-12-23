@@ -95,6 +95,36 @@ function initCustomDropdowns() {
     });
   });
 }
+
+// confirm deletion
+let pendingForm = null;
+
+document.addEventListener("submit", (e) => {
+  if (!e.target.classList.contains("confirm-delete")) return;
+
+  e.preventDefault(); // stop normal submit
+  pendingForm = e.target;
+
+  openModal();
+});
+
+function openModal() {
+  document.getElementById("confirmModal").classList.remove("hidden");
+}
+
+function closeModal() {
+  document.getElementById("confirmModal").classList.add("hidden");
+  pendingForm = null;
+}
+
+document.getElementById("confirmCancel").addEventListener("click", closeModal);
+
+document.getElementById("confirmOk").addEventListener("click", () => {
+  if (!pendingForm) return;
+
+  pendingForm.submit(); // submit after confirmation
+  closeModal();
+});
 // global functions end
 
 // fqa  start
