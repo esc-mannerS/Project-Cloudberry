@@ -19,7 +19,7 @@
             <h5 class="navigation-text">Kategorier</h5>
             <ul>
                 <li><a href="">Lp'er</a></li>
-                <li><a href="">Bøger</a></li>
+                <li><a href="/sagaswap/public/pages/books.php">Bøger</a></li>
                 <li><a href="">Video spil</a></li>
             </ul>
         </div>

@@ -120,12 +120,11 @@ require_once __DIR__ . '/../actions/my-profile/my-profile-logic.php';
                             <div class="profile-head">
                                 <h3>Mine annoncer</h3>
                             </div>
-                            <div class="profile-body">
+                            <div class="profile-body" id="user-listings">
                                 <?php if (empty($listings)): ?>
                                 <p>Ingen annoncer endnu...</p>
                                 <?php endif; ?>
                                 <?php foreach ($listings as $id => $listing): ?>
-
                                 <div class="listed-group">
                                     <div class="image-group">
                                         <?php foreach ($listing['images'] as $image): ?>

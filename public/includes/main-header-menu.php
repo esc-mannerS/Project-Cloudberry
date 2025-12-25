@@ -2,7 +2,7 @@
     <h4 class="menu-text">Kategorier</h4>
     <ul>
         <li><a href="">Lp'er</a></li>
-        <li><a href="">Bøger</a></li>
+        <li><a href="/sagaswap/public/pages/books.php">Bøger</a></li>
         <li><a href="">Video spil</a></li>
     </ul>
     <h4 class="menu-text">Min profil</h4>
