@@ -27,47 +27,6 @@
   --input-transition: 0.4s ease;
 }
 
-.hidden {
-  display: none;
-}
-
-.delete-popup {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-}
-
-.delete-popup-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-}
-
-.delete-popup-box {
-  position: relative;
-  max-width: 400px;
-  margin: 35vh auto;
-  background-color: var(--color-2);
-  padding: 1.5rem;
-  border-radius: 8px;
-  color: var(--color-3);
-}
-
-.delete-popup-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.2rem;
-}
-
-.delete-popup-actions span {
-  padding: 0.2rem;
-}
-
-button.deletion {
-  background: var(--color-5);
-  color: var(--color-4);
-}
-
 a:link,
 a:visited {
   text-decoration: none;
@@ -394,6 +353,85 @@ h1.main-text {
   background-color: var(--color-2);
 }
 /* custom dropdown end */
+/* popup start */
+.hidden {
+  display: none;
+}
+
+.delete-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.delete-popup-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.delete-popup-box {
+  position: relative;
+  max-width: 400px;
+  margin: 35vh auto;
+  background-color: var(--color-2);
+  padding: 1.5rem;
+  border-radius: 8px;
+  color: var(--color-3);
+}
+
+.delete-popup-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.2rem;
+}
+
+.delete-popup-actions span {
+  padding: 0.2rem;
+}
+
+button.deletion {
+  background: var(--color-5);
+  color: var(--color-4);
+}
+/* popup end */
+.listed-group {
+  margin-top: 2rem;
+  display: flex;
+  width: 100%;
+  color: var(--color-3);
+  border-radius: var(--border-box);
+  border: var(--color-4) solid 0.3rem;
+}
+
+.text-group {
+  width: 100%;
+  display: flex;
+}
+
+.listed-text {
+  display: flex;
+  margin: 0 0.5rem;
+  position: relative;
+  align-items: center;
+  width: 25%;
+  padding: 0.6rem 0;
+}
+
+.listed-head {
+  top: -0.8rem;
+  position: absolute;
+  display: block;
+  background-color: var(--color-2);
+  font-size: var(--sub-text-size);
+  font-weight: var(--sub-text-weight);
+}
+
+.listed-body {
+  font-size: var(--reg-text-size);
+  font-weight: var(--reg-text-weight);
+  text-align: left;
+}
 /* main end */
 
 /* footer start */
