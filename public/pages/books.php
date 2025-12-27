@@ -40,25 +40,32 @@ require_once __DIR__ . '/../actions/books/books-logic.php';
                         </div>
                         <div class="body-content">
                             <?php foreach ($books as $book): ?>
-                            <div class="listed-group">
-                                <div class="text-group">
-                                    <div class="listed-text">
-                                        <p class="listed-head">Title</p>
-                                        <p class="listed-body"><?= htmlspecialchars($book['title']) ?></p>
+                            <div class="listed-container">
+                                <a href="/sagaswap/public/pages/books-listings.php?isbn=<?= urlencode($book['isbn']) ?>"
+                                    class="listed-link">
+                                    <div class="listed-group">
+                                        <div class="text-group">
+                                            <div class="listed-text">
+                                                <p class="listed-head">Title</p>
+                                                <p class="listed-body"><?= htmlspecialchars($book['title']) ?></p>
+                                            </div>
+                                            <div class="listed-text">
+                                                <p class="listed-head">ISBN</p>
+                                                <p class="listed-body"><?= htmlspecialchars($book['isbn']) ?></p>
+                                            </div>
+                                            <div class="listed-text">
+                                                <p class="listed-head">Antal annoncer</p>
+                                                <p class="listed-body"><?= htmlspecialchars($book['total_listings']) ?>
+                                                </p>
+                                            </div>
+                                            <div class="listed-text">
+                                                <p class="listed-head">Gennemsnitlig pris</p>
+                                                <p class="listed-body"><?= htmlspecialchars($book['avg_price']) ?> DKK
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="listed-text">
-                                        <p class="listed-head">ISBN</p>
-                                        <p class="listed-body"><?= htmlspecialchars($book['isbn']) ?></p>
-                                    </div>
-                                    <div class="listed-text">
-                                        <p class="listed-head">Antal annoncer</p>
-                                        <p class="listed-body"><?= htmlspecialchars($book['total_listings']) ?></p>
-                                    </div>
-                                    <div class="listed-text">
-                                        <p class="listed-head">Gennemsnitlig pris</p>
-                                        <p class="listed-body"><?= htmlspecialchars($book['avg_price']) ?> DKK</p>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                             <?php endforeach; ?>
                         </div>

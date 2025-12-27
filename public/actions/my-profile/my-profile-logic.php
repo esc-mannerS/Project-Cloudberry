@@ -38,6 +38,7 @@ $stmt = $mysqli->prepare("
     LEFT JOIN listings l ON u.id = l.user_id
     WHERE u.id = ?
 ");
+
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
 $stmt->bind_result($username, $email, $created_at, $id, $municipality_name);

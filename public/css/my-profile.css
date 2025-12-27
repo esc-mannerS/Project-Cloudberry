@@ -36,7 +36,7 @@
 }
 
 .listing-field {
-  margin-top: 2rem;
+  margin-top: var(--padding-body-box);
   position: relative;
 }
 
@@ -149,23 +149,8 @@
 }
 /* new listing end */
 /* my listings start*/
-.image-group {
-  display: flex;
-  margin-right: 0.7rem;
-}
-
-.listed-image {
-  width: 2.7rem;
-  min-height: 4rem;
-  object-fit: cover;
-  transition: var(--input-transition);
-  transform-origin: top center;
-  border-radius: calc(var(--border-box) * 0.7);
-}
-
-.listed-image:hover {
-  width: 5.4rem;
-  height: 8rem;
+.listed-group {
+  margin-top: var(--padding-body-box);
 }
 
 .listed-text.DeleteButton {

@@ -396,12 +396,34 @@ button.deletion {
 }
 /* popup end */
 .listed-group {
-  margin-top: 2rem;
   display: flex;
   width: 100%;
   color: var(--color-3);
   border-radius: var(--border-box);
   border: var(--color-4) solid 0.3rem;
+}
+
+.image-group {
+  display: flex;
+  margin-right: 0.7rem;
+}
+
+.listed-image:first-of-type {
+  margin-right: 0.2rem;
+}
+
+.listed-image {
+  width: 2.9rem;
+  min-height: 4rem;
+  object-fit: cover;
+  transition: var(--input-transition);
+  transform-origin: top center;
+  border-radius: calc(var(--border-box) * 0.7);
+}
+
+.listed-image:hover {
+  width: 5.4rem;
+  height: 8rem;
 }
 
 .text-group {

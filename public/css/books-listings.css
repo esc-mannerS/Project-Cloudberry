@@ -1,0 +1,7 @@
+.listed-group:first-of-type {
+  margin-top: 0;
+}
+
+.listed-group {
+  margin-top: var(--padding-body-box);
+}
