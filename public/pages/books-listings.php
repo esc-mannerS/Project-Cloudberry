@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../actions/books/listings/listings-logic.php';
+require_once __DIR__ . '/../actions/books-listings/books-listings-logic.php';
 ?>
 
 <!DOCTYPE html>
