@@ -41,26 +41,34 @@ require_once __DIR__ . '/../includes/bootstrap.php';
                         <div class="body-content">
                             <div class="advert-container">
                                 <div class="advert-group-text first">
-                                    <p class="group-text TopBottom">
-                                        Annoncer og reklamer er overalt: på gaden, i postkassen og ikke mindst på
-                                        internettet. Vi kender det alle og folket er begyndt at blive mætte.</br>
-                                        Derfor har vi valgt at gøre tingene lidt anderledes.
-                                    </P>
-                                    <p class="group-text">
-                                        Brugeroplevelse er i centrum for platformen. Derfor har vi gjort annoncering til
-                                        en
-                                        integreret del af platformen.</br>
-                                        Det betyder, at vi har sagt farvel til
-                                        traditionelle annonceformer som bannerannoncer og programmatiske løsninger.</br>
-                                        I stedet tilbyder vi målrettede og specialiserede annonceringsmuligheder på
-                                        produktsiderne. Her kommer muligheden for at fremhæve jeres produkt øverst på
-                                        siden,
-                                        præcis der, hvor det bliver set først og efterfulgt af de brugeroprettede
-                                        annoncer.
-                                    </p>
-                                    <p class="group-text TopBottom">
-                                        Kort sagt: Bedre kvalitet, mindre støj og en bedre oplevelse for alle.
-                                    </p>
+                                    <div class="body-content-text">
+                                        <h3>En ny måde</h3>
+                                        <p>
+                                            Annoncer og reklamer er overalt: på gaden, i postkassen og ikke mindst på
+                                            internettet. Vi kender det alle og folket er begyndt at blive mætte.</br>
+                                            Derfor har vi valgt at gøre tingene lidt anderledes.
+                                        </P>
+                                        <h3>Annonceringsmuligheder</h3>
+                                        <p>
+                                            Brugeroplevelse er i centrum for platformen. Derfor har vi gjort annoncering
+                                            til
+                                            en
+                                            integreret del af platformen.</br>
+                                            Det betyder, at vi har sagt farvel til
+                                            traditionelle annonceformer som bannerannoncer og programmatiske
+                                            løsninger.</br>
+                                            I stedet tilbyder vi målrettede og specialiserede annonceringsmuligheder på
+                                            produktsiderne. Her kommer muligheden for at fremhæve jeres produkt øverst
+                                            på
+                                            siden,
+                                            præcis der, hvor det bliver set først og efterfulgt af de brugeroprettede
+                                            annoncer.
+                                        </p>
+                                        <h3>Kort og godt</h3>
+                                        <p class="body-content-text BottomText">
+                                            Kort sagt: Bedre kvalitet, mindre støj og en bedre oplevelse for alle.
+                                        </p>
+                                    </div>
                                 </div>
                                 <div class="advert-group-image">
                                 </div>

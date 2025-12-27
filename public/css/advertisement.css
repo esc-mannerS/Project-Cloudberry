@@ -10,14 +10,6 @@
   width: 55%;
 }
 
-.group-text {
-  margin: 0.6rem 0;
-}
-
-.group-text.TopBottom {
-  margin: 0;
-}
-
 .advert-group-text.first {
   margin-right: 10%;
 }

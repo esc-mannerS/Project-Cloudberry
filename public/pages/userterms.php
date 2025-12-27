@@ -271,7 +271,7 @@ require_once __DIR__ . '/../includes/bootstrap.php';
                                     <a href="mailto:kfst@kfst.dk">kfst@kfst.dk</a>).
                                 </p>
                                 <h3>Brugervilkår og kontaktoplysninger</h3>
-                                <p>
+                                <p class="body-content-text BottomText">
                                     Brugervilkårene træder i kraft 01. December 2025 og gælder
                                     indtill videre.<br />
                                     Brugeren kan rette klager, spørgsmål om brugervilkårene

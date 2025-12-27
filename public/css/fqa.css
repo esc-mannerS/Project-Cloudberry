@@ -5,10 +5,14 @@
   align-items: center;
 }
 
+.panel-group:first-of-type {
+  margin-top: 0;
+}
+
 .panel-group {
   border-radius: var(--border-box);
   background-color: var(--color-4);
-  margin-bottom: 0.8rem;
+  margin-top: 0.8rem;
   padding: 1rem;
   cursor: pointer;
 }

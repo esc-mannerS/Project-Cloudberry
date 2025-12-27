@@ -20,8 +20,6 @@ require_once __DIR__ . '/../includes/bootstrap.php';
         font-src 'self';
         img-src 'self';" />
     <link rel="stylesheet" href="/sagaswap/public/css/styles.css" />
-    <link rel="stylesheet" href="/sagaswap/public/css/about.css" />
-
 </head>
 
 <body>
@@ -38,8 +36,9 @@ require_once __DIR__ . '/../includes/bootstrap.php';
                             <h2 class="main-text">Danmarks enkle markedsplads</h2>
                         </div>
                         <div class="body-content">
-                            <div class="main-body-text">
-                                <p class="body-text TopBottom">
+                            <div class="body-content-text">
+                                <h3>Introduktion</h3>
+                                <p>
                                     SagaSwap er Danmarks nye online markedsplads for secondhand varer, bygget på en
                                     kerne af open source.
                                     Idéen opstod i november 2024 med et ønske om at skabe en platform,
@@ -47,7 +46,8 @@ require_once __DIR__ . '/../includes/bootstrap.php';
                                     Frihed til at handle brugt uden besvær og frihed til at bruge, forbedre og forstå
                                     den teknologi, der ligger bag.
                                 </p>
-                                <p class="body-text">
+                                <h3>Open source?</h3>
+                                <p>
                                     Grunden til at vi har valgt at bygge platformens kerne som open source, er fordi
                                     genbrug og digitale fællesskaber trives bedst, når de er åbne og frie.<br />
                                     Når teknologien er tilgængelig for alle, kan brugerene og udviklere være med til at
@@ -55,7 +55,8 @@ require_once __DIR__ . '/../includes/bootstrap.php';
                                     På samme måde giver genbrug mennesker frihed til at vælge smartere og mere
                                     bæredygtigt i stedet for altid at købe nyt.
                                 </p>
-                                <p class="body-text">
+                                <h3>Oplevelse</h3>
+                                <p>
                                     Brugervenlighed og klarhed er centrum for oplevelsen. Vi automatiserer alt det, der
                                     ellers tager tid, og gør søgningen så præcis som muligt. Derfor
                                     automatiserer vi så meget som muligt, reducerer antallet af
@@ -70,7 +71,8 @@ require_once __DIR__ . '/../includes/bootstrap.php';
                                     så vælger flere det.<br />Og dét er præcis visionen bag
                                     SagaSwap: at gøre bæredygtige valg til de oplagte valg.
                                 </p>
-                                <p class="body-text TopBottom">
+                                <h3>Mission</h3>
+                                <p class="body-content-text BottomText">
                                     Vores mål er at gøre genbrug mere tilgængeligt og mere attraktivt. Derfor bygger
                                     SagaSwap på et system, hvor produkter automatisk samles og organiseres, efterhånden
                                     som brugerne opretter dem. <br />Det gør det hurtigt at lægge en vare til salg og
